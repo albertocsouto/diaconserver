@@ -1,0 +1,3 @@
+-record(counter, {key, value}).
+-record(user, {id, email, pwd, name}).
+-record(diary, {id, date, time, type, data}).

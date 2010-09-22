@@ -1,0 +1,8 @@
+#Mon Aug 09 18:44:01 CEST 2010
+backend_version=R12B
+eclipse.preferences.version=1
+external_includes=
+external_modules=
+include_dirs=deps/mochiweb-src/src;deps/mochiweb-src/priv/skel/src;src
+output_dir=ebin
+source_dirs=deps/mochiweb-src/src;deps/mochiweb-src/examples/keepalive;deps/mochiweb-src/priv/skel/src;deps/mochiweb-src/examples/https;src;deps/mochiweb-src/scripts
