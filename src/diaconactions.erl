@@ -54,10 +54,18 @@ createDiaryEntry(Diary) ->
 	{struct, [{<<"result">>, Id}]}.
 
 removeDiaryEntry(Diary) ->
-	Id = struct:get_value(<<"id">>, Diary),
-	{atomic, ok} = diaconserver_db:delete({diary, Id}),
-	{struct, [{<<"result">>, <<"ok">>}]}.
+	Ids = struct:get_value(<<"id">>, Diary),
+	io:format("~nIds : ~p~n", [Ids]),
+	remove(Ids).
 	
+remove(List) ->
+	case List of
+		[] ->
+			{struct, [{<<"result">>, <<"ok">>}]};
+		[H|T] ->						  
+			{atomic, ok} = diaconserver_db:delete({diary, H}),
+			remove(T)
+	end.
 
 getDiaryEntries(Diary) ->
 	Date = struct:get_value(<<"date">>, Diary),

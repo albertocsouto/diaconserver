@@ -43,11 +43,9 @@ loop(Req, DocRoot) ->
 					
 					Result = diaconactions:Action(Parameters),
 					
-					io:format("~nResult : ~p~n", [Result]),
 					EncodedResult = mochijson2:encode(Result),
 
 					DataOut = Callback ++ "("  ++ EncodedResult ++ ")",
-					io:format("~nDataOut : ~p~n", [DataOut]),
 					Req:ok({"text/javascript", [], DataOut});
 
 	 
